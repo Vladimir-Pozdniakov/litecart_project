@@ -4,13 +4,12 @@ import com.codeborne.selenide.Configuration;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pageObjects.MainPage;
-import pageObjects.ProductModalWindow;
+import pageObjects.ProductsPage;
 import utils.ConfigProperties;
 
+import static com.codeborne.selenide.Selenide.open;
 
-import static com.codeborne.selenide.Selenide.*;
-
-public class ProductsDisplayingTest {
+public class SortProductsTest {
 
     @BeforeTest
     public static void setUp(){
@@ -20,16 +19,31 @@ public class ProductsDisplayingTest {
     }
 
     @Test
-    public void test_Appearance_Product_In_The_Recently_Viewed_Area() {
+    public void testSortProductsByName() {
 
         MainPage mainPage = new MainPage();
-        ProductModalWindow productModalWindow = new ProductModalWindow();
+        ProductsPage productsPage = new ProductsPage();
 
+        mainPage
+                .clickCategoriesItem("RubberSSS Ducks");
 
-        mainPage.clickOnFirstProduct();
-        productModalWindow.closeModalWindow();
-        refresh();
-        mainPage.assertCountOfProductsInRecentlyViewedArea(1);
+        productsPage
+                .clickSortButton("Name")
+                .assertSortingProductsByName();
+    }
+
+    @Test
+    public void testSortProductsByPrice() {
+
+        MainPage mainPage = new MainPage();
+        ProductsPage productsPage = new ProductsPage();
+
+        mainPage
+                .clickCategoriesItem("RubberSSS Ducks");
+
+        productsPage
+                .clickSortButton("Price")
+                .assertSortingProductsByPrice();
     }
 
 }
