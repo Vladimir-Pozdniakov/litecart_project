@@ -1,23 +1,29 @@
 package pageObjects;
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
+import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+
 import static com.codeborne.selenide.Selenide.*;
 
 public class MainPage {
 
-    private final WebElement FIRST_PRODUCT = $("#box-campaign-products div[data-id='1']");
-    private final ElementsCollection COUNT_OF_PRODUCTS_IN_RECENTLY_VIEW_AREA = $$(".col-xs-3");
+    private SelenideElement firstProduct = $("#box-campaign-products div[data-id='1']");
+    private ElementsCollection countOfProductsInRecentlyViewArea = $$(".col-xs-3");
+    private SelenideElement productPriceValue = $(".product .price-wrapper");
 
+    public MainPage() {
+
+    }
     public MainPage clickOnFirstProduct() {
 
-        FIRST_PRODUCT.click();
+        firstProduct.click();
         return this;
     }
 
     public MainPage assertCountOfProductsInRecentlyViewedArea(int i) {
 
-        COUNT_OF_PRODUCTS_IN_RECENTLY_VIEW_AREA.shouldHaveSize(i);
+        countOfProductsInRecentlyViewArea.shouldHaveSize(i);
         return this;
     }
 
@@ -28,4 +34,9 @@ public class MainPage {
     }
 
 
+    public MainPage assertCurrencyTypeOfProducts(String currencyType) {
+
+        productPriceValue.shouldHave(Condition.text(currencyType));
+        return this;
+    }
 }
