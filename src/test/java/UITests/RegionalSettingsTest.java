@@ -10,7 +10,8 @@ import utils.SetUp;
 
 public class RegionalSettingsTest extends SetUp {
 
-    @Test(dataProvider = "currencyValue", dataProviderClass = DataProviderSource.class)
+    @Test(dataProvider = "currencyValue",
+            dataProviderClass = DataProviderSource.class)
     public void testCurrencySelection(String currency, String currencyType) {
 
         RegionalSettingsWindow regionalSettingsWindow = new RegionalSettingsWindow();
@@ -18,30 +19,34 @@ public class RegionalSettingsTest extends SetUp {
 
 
         MainElements.clickChangeRegionalSettingsLink();
+
         regionalSettingsWindow
                 .selectCurrency(currency)
                 .clickSaveButton();
 
         mainPage.assertCurrencyTypeOfProducts(currencyType);
+
         MainElements.assertDisplayingCurrency(currency);
 
     }
 
-    @Test(dataProvider = "countryValue", dataProviderClass = DataProviderSource.class)
+    @Test(dataProvider = "countryValue",
+            dataProviderClass = DataProviderSource.class)
     public void testCountrySelection(String country, String region) {
 
         RegionalSettingsWindow regionalSettingsWindow = new RegionalSettingsWindow();
 
         MainElements.clickChangeRegionalSettingsLink();
+
         regionalSettingsWindow
                 .selectCountry(country)
                 .clickSaveButton();
-        MainElements.clickChangeRegionalSettingsLink();
-        regionalSettingsWindow
-                .assertCountryIs(country)
-                .closeModalWindow();
 
-        System.out.println(country);
+        MainElements.clickChangeRegionalSettingsLink();
+
+        regionalSettingsWindow
+                .assertSelectedCountryIs(country)
+                .closeModalWindow();
     }
 
 }

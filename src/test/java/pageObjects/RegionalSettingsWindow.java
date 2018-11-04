@@ -1,5 +1,6 @@
 package pageObjects;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -49,9 +50,10 @@ public class RegionalSettingsWindow {
         saveButton.click();
     }
 
-    public RegionalSettingsWindow assertCountryIs(String country) {
+    public RegionalSettingsWindow assertSelectedCountryIs(String country) {
 
-        countryDropDown.shouldHave(text(country));
+        //countryDropDown.shouldHave(text(country));
+        countryDropDown.$(By.xpath("//option[text()='" + country + "']")).shouldBe(selected);
         return this;
     }
 }

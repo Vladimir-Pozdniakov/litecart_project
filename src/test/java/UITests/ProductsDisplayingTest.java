@@ -1,23 +1,14 @@
 package UITests;
 
-import com.codeborne.selenide.Configuration;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pageObjects.MainPage;
 import pageObjects.ProductModalWindow;
-import utils.ConfigProperties;
+import utils.SetUp;
 
 
 import static com.codeborne.selenide.Selenide.*;
 
-public class ProductsDisplayingTest {
-
-    @BeforeTest
-    public static void setUp(){
-
-        Configuration.startMaximized=true;
-        open(ConfigProperties.getTestProperty("url"));
-    }
+public class ProductsDisplayingTest extends SetUp {
 
     @Test
     public void testAppearanceProductInTheRecentlyViewedArea() {
