@@ -7,7 +7,7 @@ import utils.SetUp;
 
 public class SortProductsTest extends SetUp {
 
-    @Test(groups = "functional")
+    @Test(groups = "regression")
     public void testSortProductsByName() {
 
         MainPage mainPage = new MainPage();
@@ -21,7 +21,7 @@ public class SortProductsTest extends SetUp {
                 .assertSortingProductsByName();
     }
 
-    @Test(groups = "functional")
+    @Test(groups = "regression")
     public void testSortProductsByPrice() {
 
         MainPage mainPage = new MainPage();

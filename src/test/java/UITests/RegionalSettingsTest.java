@@ -12,7 +12,7 @@ public class RegionalSettingsTest extends SetUp {
 
     @Test(dataProvider = "currencyValue",
             dataProviderClass = DataProviderSource.class,
-            groups = {"functional", "regression"})
+            groups = {"functional"})
     public void testCurrencySelection(String currency, String currencyType) {
 
         RegionalSettingsWindow regionalSettingsWindow = new RegionalSettingsWindow();
@@ -33,7 +33,7 @@ public class RegionalSettingsTest extends SetUp {
 
     @Test(dataProvider = "countryValue",
             dataProviderClass = DataProviderSource.class,
-            groups = {"functional", "regression"})
+            groups = {"functional"})
     public void testCountrySelection(String country, String region) {
 
         RegionalSettingsWindow regionalSettingsWindow = new RegionalSettingsWindow();
