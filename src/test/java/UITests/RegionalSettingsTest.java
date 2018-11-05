@@ -11,7 +11,8 @@ import utils.SetUp;
 public class RegionalSettingsTest extends SetUp {
 
     @Test(dataProvider = "currencyValue",
-            dataProviderClass = DataProviderSource.class)
+            dataProviderClass = DataProviderSource.class,
+            groups = {"functional", "regression"})
     public void testCurrencySelection(String currency, String currencyType) {
 
         RegionalSettingsWindow regionalSettingsWindow = new RegionalSettingsWindow();
@@ -31,7 +32,8 @@ public class RegionalSettingsTest extends SetUp {
     }
 
     @Test(dataProvider = "countryValue",
-            dataProviderClass = DataProviderSource.class)
+            dataProviderClass = DataProviderSource.class,
+            groups = {"functional", "regression"})
     public void testCountrySelection(String country, String region) {
 
         RegionalSettingsWindow regionalSettingsWindow = new RegionalSettingsWindow();

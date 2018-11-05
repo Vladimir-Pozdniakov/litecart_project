@@ -9,7 +9,7 @@
             </define>
 
             <run>
-                <include name="functional"/>
+                <include name="regression"/>
             </run>
         </groups>
 

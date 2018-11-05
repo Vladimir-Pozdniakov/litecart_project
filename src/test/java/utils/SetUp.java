@@ -1,13 +1,14 @@
 package utils;
 
 import com.codeborne.selenide.Configuration;
+import org.testng.annotations.BeforeGroups;
 import org.testng.annotations.BeforeMethod;
 
 import static com.codeborne.selenide.Selenide.open;
 
 public class SetUp {
 
-    @BeforeMethod
+    @BeforeMethod(groups = {"functional","regression"})
     public static void setUp(){
 
         Configuration.startMaximized=true;

@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class ProductsDisplayingTest extends SetUp {
 
-    @Test
+    @Test(groups = {"functional", "regression"})
     public void testAppearanceProductInTheRecentlyViewedArea() {
 
         MainPage mainPage = new MainPage();
