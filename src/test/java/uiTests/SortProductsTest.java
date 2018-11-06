@@ -1,4 +1,4 @@
-package UITests;
+package uiTests;
 
 import org.testng.annotations.Test;
 import pageObjects.MainPage;

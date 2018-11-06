@@ -14,9 +14,9 @@
         </groups>
 
         <classes>
-            <class name="UITests.SortProductsTest"/>
-            <class name="UITests.ProductsDisplayingTest"/>
-            <class name="UITests.RegionalSettingsTest"/>
+            <class name="uiTests.SortProductsTest"/>
+            <class name="uiTests.ProductsDisplayingTest"/>
+            <class name="uiTests.RegionalSettingsTest"/>
         </classes>
 
 
