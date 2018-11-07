@@ -1,9 +1,7 @@
 package pageObjects;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 import static com.codeborne.selenide.Condition.*;
@@ -11,8 +9,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class RegionalSettingsWindow {
 
-    private WebElement closeButton = $(".featherlight-close-icon");
-
+    private SelenideElement closeButton = $(".featherlight-close-icon");
     private SelenideElement currencyDropDown = $(By.name("currency_code"));
     private SelenideElement countryDropDown = $(By.name("country_code"));
     private SelenideElement zoneDropDown = $(By.name("zone_code"));
@@ -52,7 +49,6 @@ public class RegionalSettingsWindow {
 
     public RegionalSettingsWindow assertSelectedCountryIs(String country) {
 
-        //countryDropDown.shouldHave(text(country));
         countryDropDown.$(By.xpath("//option[text()='" + country + "']")).shouldBe(selected);
         return this;
     }

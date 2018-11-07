@@ -13,10 +13,6 @@ public class MainElements {
     private static SelenideElement changeLink = $(".change");
     private static SelenideElement regionalCurrency = $(".currency");
 
-    public MainElements() {
-
-    }
-
 
     public static RegionalSettingsWindow clickChangeRegionalSettingsLink() {
         changeLink.click();

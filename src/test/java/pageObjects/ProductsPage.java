@@ -1,7 +1,6 @@
 package pageObjects;
 
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.ElementsCollection;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 
@@ -12,8 +11,6 @@ import static com.codeborne.selenide.Selenide.*;
 public class ProductsPage {
 
     public ProductsPage clickSortButton(String byType) {
-
-        //$(By.xpath("//div[@id='box-category'] //a[contains(text(),'" + byType + "')]")).click();
 
         try {
             $(By.linkText(byType)).click();
