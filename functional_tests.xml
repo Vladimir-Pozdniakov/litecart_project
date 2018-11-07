@@ -13,9 +13,6 @@
             </run>
         </groups>
 
-        <packages>
-            <package name="UITests"/>
-        </packages>
         <classes>
             <class name="uiTests.SortProductsTest"/>
             <class name="uiTests.ProductsDisplayingTest"/>

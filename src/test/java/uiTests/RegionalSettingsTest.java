@@ -4,8 +4,8 @@ import org.testng.annotations.Test;
 import pageObjects.MainElements;
 import pageObjects.MainPage;
 import pageObjects.RegionalSettingsWindow;
-import utils.DataProviderSource;
-import utils.SetUp;
+import helper.DataProviderSource;
+import helper.SetUp;
 
 
 public class RegionalSettingsTest extends SetUp {

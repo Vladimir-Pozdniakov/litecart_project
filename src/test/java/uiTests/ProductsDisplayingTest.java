@@ -3,7 +3,7 @@ package uiTests;
 import org.testng.annotations.Test;
 import pageObjects.MainPage;
 import pageObjects.ProductModalWindow;
-import utils.SetUp;
+import helper.SetUp;
 
 
 import static com.codeborne.selenide.Selenide.*;

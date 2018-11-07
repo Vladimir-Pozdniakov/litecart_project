@@ -1,4 +1,4 @@
-package utils;
+package helper;
 
 import com.codeborne.selenide.Configuration;
 import org.testng.annotations.BeforeMethod;

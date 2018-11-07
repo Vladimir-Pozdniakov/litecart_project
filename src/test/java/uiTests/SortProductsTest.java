@@ -3,7 +3,7 @@ package uiTests;
 import org.testng.annotations.Test;
 import pageObjects.MainPage;
 import pageObjects.ProductsPage;
-import utils.SetUp;
+import helper.SetUp;
 
 public class SortProductsTest extends SetUp {
 
