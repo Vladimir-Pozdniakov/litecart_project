@@ -9,3 +9,5 @@ out/
 # Maven
 log/
 target/
+
+allure-results
