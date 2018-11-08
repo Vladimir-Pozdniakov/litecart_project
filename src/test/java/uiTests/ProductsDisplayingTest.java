@@ -5,9 +5,6 @@ import pageObjects.MainPage;
 import pageObjects.ProductModalWindow;
 import helper.SetUp;
 
-
-import static com.codeborne.selenide.Selenide.*;
-
 public class ProductsDisplayingTest extends SetUp {
 
     @Test(groups = {"functional"})
@@ -19,7 +16,6 @@ public class ProductsDisplayingTest extends SetUp {
 
         mainPage.clickOnFirstProduct();
         productModalWindow.closeModalWindow();
-        refresh();
         mainPage.assertCountOfProductsInRecentlyViewedArea(1);
     }
 

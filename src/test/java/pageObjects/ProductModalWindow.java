@@ -1,17 +1,17 @@
 package pageObjects;
 
-import org.openqa.selenium.WebElement;
+import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.*;
 
 public class ProductModalWindow {
 
-    private final WebElement CLOSE_BUTTON = $(".featherlight-close-icon");
+    private SelenideElement closeButton = $(".featherlight-close-icon");
 
 
     public MainPage closeModalWindow() {
 
-        CLOSE_BUTTON.click();
+        closeButton.click();
         return new MainPage();
     }
 }

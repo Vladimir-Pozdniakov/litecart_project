@@ -7,7 +7,6 @@ import pageObjects.RegionalSettingsWindow;
 import helper.DataProviderSource;
 import helper.SetUp;
 
-
 public class RegionalSettingsTest extends SetUp {
 
     @Test(dataProvider = "currencyValue",

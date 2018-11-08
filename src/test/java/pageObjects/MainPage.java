@@ -1,4 +1,5 @@
 package pageObjects;
+
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
@@ -15,6 +16,7 @@ public class MainPage {
     public MainPage() {
 
     }
+
     public MainPage clickOnFirstProduct() {
 
         firstProduct.click();
@@ -23,6 +25,7 @@ public class MainPage {
 
     public MainPage assertCountOfProductsInRecentlyViewedArea(int i) {
 
+        refresh();
         countOfProductsInRecentlyViewArea.shouldHaveSize(i);
         return this;
     }
