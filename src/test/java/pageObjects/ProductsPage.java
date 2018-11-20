@@ -22,6 +22,7 @@ public class ProductsPage {
     }
 
     private void checkElementIsEnabled(String byType) {
+
         try {
             $(By.xpath("//span[text()='" + byType + "']")).shouldBe(Condition.enabled);
         } catch (Error e) {
