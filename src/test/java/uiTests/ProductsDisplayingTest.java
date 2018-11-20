@@ -15,6 +15,7 @@ public class ProductsDisplayingTest extends SetUp {
 
         mainPage.clickOnFirstProduct();
         productModalWindow.closeModalWindow();
+
         mainPage.assertCountOfProductsInRecentlyViewedArea(1);
     }
 

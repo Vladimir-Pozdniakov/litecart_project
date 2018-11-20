@@ -12,7 +12,6 @@ import static com.codeborne.selenide.Selenide.*;
 public class ProductsPage {
 
     public ProductsPage clickSortButton(String byType) throws NoSuchElementException {
-
         try {
             $(By.linkText(byType)).click();
         } catch (Error error) {
@@ -22,7 +21,6 @@ public class ProductsPage {
     }
 
     private void checkElementIsEnabled(String byType) {
-
         try {
             $(By.xpath("//span[text()='" + byType + "']")).shouldBe(Condition.enabled);
         } catch (Error e) {
@@ -31,18 +29,20 @@ public class ProductsPage {
     }
 
     public void assertSortingProductsByName() {
-        Object[] actualOrderOfProducts = $$(".products .name").texts().toArray();
-        Object[] expectedOrderOfProducts = actualOrderOfProducts.clone();
-
-        Arrays.sort(expectedOrderOfProducts);
-        Assert.assertEquals(actualOrderOfProducts, expectedOrderOfProducts, "Incorrect sorting by Name: Products not in alphabetical order");
+        assertSortingProductCollection(".products .name",
+                "Incorrect sorting by Name: Products not in alphabetical order");
     }
 
     public void assertSortingProductsByPrice() {
-        Object[] actualOrderOfProducts = $$(".price-wrapper *:last-child").texts().toArray();
-        Object[] expectedOrderOfProducts = actualOrderOfProducts.clone();
+        assertSortingProductCollection(".price-wrapper *:last-child",
+                "Incorrect sorting by Price");
+    }
 
-        Arrays.sort(expectedOrderOfProducts);
-        Assert.assertEquals(actualOrderOfProducts, expectedOrderOfProducts, "Incorrect sorting by Price");
+    private void assertSortingProductCollection(String selector, String message) {
+        Object[] actualOrderOfElements = $$(selector).texts().toArray();
+        Object[] expectedOrderOfElements = actualOrderOfElements.clone();
+
+        Arrays.sort(expectedOrderOfElements);
+        Assert.assertEquals(actualOrderOfElements, expectedOrderOfElements, message);
     }
 }

@@ -22,6 +22,7 @@ public class RegionalSettingsTest extends SetUp {
         regionalSettingsWindow
                 .selectCurrency(currency)
                 .clickSaveButton();
+
         mainPage.assertCurrencyTypeOfProducts(currencyType);
         mainElements.assertDisplayingCurrency(currency);
     }
