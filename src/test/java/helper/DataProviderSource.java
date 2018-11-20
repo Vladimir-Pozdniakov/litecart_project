@@ -4,6 +4,7 @@ import org.testng.annotations.DataProvider;
 
 public class DataProviderSource {
 
+    //Set the currency values used in the tests.
     @DataProvider
     public Object[][] currencyValue() {
         return new Object[][]{
@@ -12,6 +13,7 @@ public class DataProviderSource {
         };
     }
 
+    //Set the country and region values used in the tests.
     @DataProvider
     public Object[][] countryValue() {
         return new Object[][]{

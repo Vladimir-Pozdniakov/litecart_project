@@ -8,9 +8,7 @@ public class ProductModalWindow {
 
     private SelenideElement closeButton = $(".featherlight-close-icon");
 
-
     public MainPage closeModalWindow() {
-
         closeButton.click();
         return new MainPage();
     }

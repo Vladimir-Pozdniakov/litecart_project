@@ -8,7 +8,6 @@ import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 
 public class RegionalSettingsWindow {
-
     private SelenideElement closeButton = $(".featherlight-close-icon");
     private SelenideElement currencyDropDown = $(By.name("currency_code"));
     private SelenideElement countryDropDown = $(By.name("country_code"));
@@ -17,7 +16,6 @@ public class RegionalSettingsWindow {
     private SelenideElement saveButton = $("button[name='save']");
 
     public void closeModalWindow() {
-
         closeButton.click();
     }
 
@@ -28,7 +26,6 @@ public class RegionalSettingsWindow {
 
     public RegionalSettingsWindow selectCountry(String country) {
         new Select(countryDropDown).selectByVisibleText(country);
-
         return this;
     }
 
@@ -38,7 +35,6 @@ public class RegionalSettingsWindow {
     }
 
     public RegionalSettingsWindow selectRadioButton(String radioButton) {
-
         radioButtonDisplayPrice.selectRadio(radioButton);
         return this;
     }
@@ -48,7 +44,6 @@ public class RegionalSettingsWindow {
     }
 
     public RegionalSettingsWindow assertSelectedCountryIs(String country) {
-
         countryDropDown.$(By.xpath("//option[text()='" + country + "']")).shouldBe(selected);
         return this;
     }

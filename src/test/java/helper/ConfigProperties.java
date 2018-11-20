@@ -1,32 +1,20 @@
 package helper;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.Properties;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+
+import java.io.*;
+import java.nio.file.Paths;
 
 public class ConfigProperties {
 
-    protected static FileInputStream fileInputStream;
-    protected static Properties PROPERTIES;
+    public static String getTestProperty(String key) throws FileNotFoundException {
+        String path = "config.json";
+        Gson gson = new Gson();
 
-    static {
-        try {
-            fileInputStream = new FileInputStream("config.properties");
-            PROPERTIES = new Properties();
-            PROPERTIES.load(fileInputStream);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            if (fileInputStream != null)
-                try {
-                    fileInputStream.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-        }
-    }
+        File jsonFile = Paths.get(path).toFile();
+        JsonObject jsonObject = gson.fromJson(new FileReader(jsonFile), JsonObject.class);
 
-    public static String getTestProperty(String key) {
-        return PROPERTIES.getProperty(key);
+        return jsonObject.get(key).getAsString();
     }
 }

@@ -1,6 +1,7 @@
 package uiTests;
 
 import org.testng.annotations.Test;
+import org.testng.reporters.jq.Main;
 import pageObjects.MainElements;
 import pageObjects.MainPage;
 import pageObjects.RegionalSettingsWindow;
@@ -13,41 +14,32 @@ public class RegionalSettingsTest extends SetUp {
             dataProviderClass = DataProviderSource.class,
             groups = {"functional"})
     public void testCurrencySelection(String currency, String currencyType) {
-
         RegionalSettingsWindow regionalSettingsWindow = new RegionalSettingsWindow();
         MainPage mainPage = new MainPage();
+        MainElements mainElements = new MainElements();
 
-
-        MainElements.clickChangeRegionalSettingsLink();
-
+        mainElements.clickChangeRegionalSettingsLink();
         regionalSettingsWindow
                 .selectCurrency(currency)
                 .clickSaveButton();
-
         mainPage.assertCurrencyTypeOfProducts(currencyType);
-
-        MainElements.assertDisplayingCurrency(currency);
-
+        mainElements.assertDisplayingCurrency(currency);
     }
 
     @Test(dataProvider = "countryValue",
             dataProviderClass = DataProviderSource.class,
             groups = {"functional"})
     public void testCountrySelection(String country, String region) {
-
         RegionalSettingsWindow regionalSettingsWindow = new RegionalSettingsWindow();
+        MainElements mainElements = new MainElements();
 
-        MainElements.clickChangeRegionalSettingsLink();
-
+        mainElements.clickChangeRegionalSettingsLink();
         regionalSettingsWindow
                 .selectCountry(country)
                 .clickSaveButton();
-
-        MainElements.clickChangeRegionalSettingsLink();
-
+        mainElements.clickChangeRegionalSettingsLink();
         regionalSettingsWindow
                 .assertSelectedCountryIs(country)
                 .closeModalWindow();
     }
-
 }

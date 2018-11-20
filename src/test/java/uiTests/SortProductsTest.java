@@ -7,15 +7,14 @@ import helper.SetUp;
 
 public class SortProductsTest extends SetUp {
 
+
     @Test(groups = "regression")
     public void testSortProductsByName() {
-
         MainPage mainPage = new MainPage();
         ProductsPage productsPage = new ProductsPage();
 
         mainPage
                 .clickCategoriesItem("Rubber Ducks");
-
         productsPage
                 .clickSortButton("Name")
                 .assertSortingProductsByName();
@@ -23,16 +22,13 @@ public class SortProductsTest extends SetUp {
 
     @Test(groups = "regression")
     public void testSortProductsByPrice() {
-
         MainPage mainPage = new MainPage();
         ProductsPage productsPage = new ProductsPage();
 
         mainPage
                 .clickCategoriesItem("Rubber Ducks");
-
         productsPage
                 .clickSortButton("Price")
                 .assertSortingProductsByPrice();
     }
-
 }
